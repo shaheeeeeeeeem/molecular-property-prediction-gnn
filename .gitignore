@@ -1,0 +1,26 @@
+# AI assistant configuration (not for public repo)
+CLAUDE.md
+
+# molpcba extension (still training, not part of this push)
+notebooks/06_molpcba_multitask.ipynb
+notebooks/07_molpcba_improved.ipynb
+models/*molpcba*
+outputs/*molpcba*
+outputs/figures/*molpcba*
+
+# OGB dataset cache (large, auto-downloaded by the loader on first run)
+dataset/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
