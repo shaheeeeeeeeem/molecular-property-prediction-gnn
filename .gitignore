@@ -1,6 +1,9 @@
 # AI assistant configuration (not for public repo)
 CLAUDE.md
 
+# local copy of notebooks with full markdown writeups (not for public repo)
+notebooks_full/
+
 # OGB dataset cache (large, auto-downloaded by the loader on first run)
 dataset/
 
