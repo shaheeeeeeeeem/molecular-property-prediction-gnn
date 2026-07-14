@@ -111,10 +111,18 @@ with st.expander("What am I looking at?"):
 EXAMPLES = {
     "Aspirin": "CC(=O)OC1=CC=CC=C1C(=O)O",
     "Caffeine": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+    "Nicotine": "CN1CCCC1c1cccnc1",
     "Ethanol": "CCO",
     "Benzene": "c1ccccc1",
     "Paracetamol": "CC(=O)NC1=CC=C(O)C=C1",
     "Ibuprofen": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O",
+    "Phenol": "Oc1ccccc1",
+    "Toluene": "Cc1ccccc1",
+    "Naphthalene": "c1ccc2ccccc2c1",
+    "Acetone": "CC(=O)C",
+    "Urea": "NC(=O)N",
+    "Methane": "C",
+    "Water": "O",
 }
 
 choice = st.selectbox("Example molecule", ["Custom"] + list(EXAMPLES.keys()))
