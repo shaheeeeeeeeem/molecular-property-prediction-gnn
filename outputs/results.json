@@ -1,0 +1,21 @@
+{
+  "gin": {
+    "config": {
+      "hidden_dim": 256,
+      "num_layers": 5,
+      "dropout": 0.2
+    },
+    "val_rocauc": 0.8081735008818343,
+    "test_rocauc": 0.7597539543057998
+  },
+  "gat": {
+    "config": {
+      "hidden_dim": 64,
+      "num_layers": 3,
+      "dropout": 0.2,
+      "heads": 4
+    },
+    "val_rocauc": 0.7993735302763081,
+    "test_rocauc": 0.7402846713918769
+  }
+}
