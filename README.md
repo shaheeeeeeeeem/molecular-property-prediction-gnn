@@ -2,6 +2,8 @@
 
 GIN and GAT trained from scratch on OGB's `ogbg-molhiv` benchmark for HIV inhibition prediction, benchmarked against the public leaderboard.
 
+Molecules are graphs, atoms are nodes, bonds are edges, so this is a natural fit for graph neural networks rather than the usual image/text/tabular setups. The point of this project is a direct, controlled comparison of two different message-passing schemes (GIN's sum-aggregation vs. GAT's attention) on the same real chemistry task, not just wrapping an existing library.
+
 ## Project structure
 
 - `notebooks/01_data_exploration.ipynb` — loads the dataset via OGB's official loader and scaffold split, reports class balance, graph size stats, and node/edge feature semantics.

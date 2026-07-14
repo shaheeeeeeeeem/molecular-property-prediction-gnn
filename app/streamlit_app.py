@@ -97,13 +97,24 @@ def smiles_to_tensors(smiles):
 
 
 st.title("HIV Inhibition Prediction — GIN vs GAT")
-st.caption("Predicts the probability that a molecule inhibits HIV replication, per the ogbg-molhiv benchmark.")
+st.caption("Two graph neural networks predict whether a molecule inhibits HIV replication.")
+
+with st.expander("What am I looking at?"):
+    st.markdown(
+        "Each molecule is converted into a graph (atoms as nodes, bonds as edges) and fed through "
+        "two GNN architectures trained from scratch on OGB's `ogbg-molhiv` benchmark (41K molecules, "
+        "~3.5% active). **GIN** scored 0.76 test ROC-AUC, **GAT** scored 0.74, evaluated against the "
+        "official OGB leaderboard. Pick a molecule below (or paste your own SMILES) to see both models' "
+        "predicted probability of activity. [Full writeup and code](https://github.com/shaheeeeeeeeem/molecular-property-prediction-gnn)."
+    )
 
 EXAMPLES = {
     "Aspirin": "CC(=O)OC1=CC=CC=C1C(=O)O",
     "Caffeine": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
     "Ethanol": "CCO",
     "Benzene": "c1ccccc1",
+    "Paracetamol": "CC(=O)NC1=CC=C(O)C=C1",
+    "Ibuprofen": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O",
 }
 
 choice = st.selectbox("Example molecule", ["Custom"] + list(EXAMPLES.keys()))
@@ -128,5 +139,6 @@ elif smiles:
             gat_prob = torch.sigmoid(gat_model(x, edge_index, batch)).item()
 
         col1, col2 = st.columns(2)
-        col1.metric("GIN — HIV inhibition probability", f"{gin_prob:.4f}")
-        col2.metric("GAT — HIV inhibition probability", f"{gat_prob:.4f}")
+        col1.metric("GIN", f"{gin_prob:.4f}")
+        col2.metric("GAT", f"{gat_prob:.4f}")
+        st.caption("Predicted probability the molecule inhibits HIV replication (0 = inactive, 1 = active). Real actives are rare (~3.5% of the training set), so most molecules should score low.")
